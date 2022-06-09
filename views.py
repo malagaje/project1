@@ -1,4 +1,5 @@
 from datetime import datetime
+from django import http
 from django.http import HttpResponse
 
 def saludo(request):
@@ -40,3 +41,13 @@ def damefecha(request):
     """    % mifecha
 
     return HttpResponse(documento2)
+
+def calculaEdad(request, agno):
+
+    edadActual=18
+    periodo=agno-2019
+    edadFutura=edadActual+periodo
+    documento="<html><body><h2>En el año %s tendrás %s años" %(agno, edadFutura)
+
+    return HttpResponse(documento)
+
